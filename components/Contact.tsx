@@ -37,13 +37,24 @@ export default function Contact() {
                 </a>
               </div>
 
-              <a
-                href={`mailto:${config.email}`}
-                className="mt-8 inline-flex items-center gap-2 text-[14px] text-white/70 hover:text-white transition-colors duration-300 underline underline-offset-4 decoration-white/30"
-              >
-                <Mail size={14} aria-hidden="true" />
-                {config.email}
-              </a>
+              <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-[14px] text-white/70">
+                <a
+                  href={`mailto:${config.email}`}
+                  className="inline-flex items-center gap-2 hover:text-white transition-colors duration-300"
+                >
+                  <Mail size={14} aria-hidden="true" />
+                  {config.email}
+                </a>
+                <a
+                  href={config.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-white transition-colors duration-300"
+                >
+                  <MessageCircle size={14} aria-hidden="true" />
+                  {config.whatsappDisplay}
+                </a>
+              </div>
             </div>
           </div>
         </Reveal>

@@ -6,17 +6,22 @@ function TechRow({ ariaHidden = false }: { ariaHidden?: boolean }) {
   return (
     <ul
       aria-hidden={ariaHidden || undefined}
-      className={`flex items-center gap-3 sm:gap-4 pr-3 sm:pr-4 shrink-0 ${ariaHidden ? "motion-reduce:hidden" : "motion-reduce:flex-wrap"}`}
+      className={`flex items-center gap-3 sm:gap-4 pr-3 sm:pr-4 shrink-0 ${
+        ariaHidden ? "motion-reduce:hidden" : "motion-reduce:flex-wrap motion-reduce:justify-center"
+      }`}
     >
-      {technologies.items.map((tech) => (
-        <li
-          key={tech}
-          className="flex items-center gap-2.5 bg-white border border-gray-200 rounded-full px-4 sm:px-5 py-2 sm:py-2.5 whitespace-nowrap"
-        >
-          <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-accent" />
-          <span className="text-[13px] sm:text-[14px] font-medium text-ink">{tech}</span>
-        </li>
-      ))}
+      {technologies.items.map((tech) => {
+        const Icon = tech.icon;
+        return (
+          <li
+            key={tech.name}
+            className="flex items-center gap-2.5 bg-white border border-gray-200 rounded-full px-4 sm:px-5 py-2 sm:py-2.5 whitespace-nowrap"
+          >
+            <Icon aria-hidden="true" className="w-4 h-4 text-ink" />
+            <span className="text-[13px] sm:text-[14px] font-medium text-ink">{tech.name}</span>
+          </li>
+        );
+      })}
     </ul>
   );
 }
@@ -38,7 +43,7 @@ export default function Technologies() {
         {/* Bandeau défilant — statique et en retour à la ligne si prefers-reduced-motion */}
         <Reveal delay={0.2}>
           <div className="relative motion-reduce:px-5 motion-reduce:sm:px-8 motion-reduce:lg:px-12">
-            <div className="flex w-max animate-marquee motion-reduce:w-auto motion-reduce:flex-wrap motion-reduce:gap-3">
+            <div className="flex w-max animate-marquee motion-reduce:w-auto motion-reduce:flex-wrap motion-reduce:gap-3 motion-reduce:justify-center">
               <TechRow />
               <TechRow ariaHidden />
             </div>

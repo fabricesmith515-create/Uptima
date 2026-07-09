@@ -1,6 +1,5 @@
 import { config } from "@/lib/config";
 import { footer, navLinks } from "@/lib/content";
-import StarburstIcon from "@/components/ui/StarburstIcon";
 
 export default function Footer() {
   return (
@@ -55,9 +54,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-gray-200 flex items-center justify-between gap-4">
+        <div className="mt-12 pt-6 border-t border-gray-200">
           <p className="text-[13px] text-gray-500">{footer.copyright}</p>
-          <StarburstIcon className="w-5 h-5 fill-current text-accent-soft shrink-0" />
         </div>
       </div>
     </footer>

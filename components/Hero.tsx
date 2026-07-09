@@ -2,10 +2,10 @@
 
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "motion/react";
+import { Sparkles } from "lucide-react";
 import { config } from "@/lib/config";
 import { hero } from "@/lib/content";
 import RollButton from "@/components/ui/RollButton";
-import StarburstIcon from "@/components/ui/StarburstIcon";
 
 // Le shader (WebGL) ne se rend que côté client ; en attendant, le fond
 // statique dégradé ci-dessous assure la continuité visuelle.
@@ -75,7 +75,7 @@ export default function Hero() {
           <RollButton href={config.calComUrl} label={hero.ctaPrimary} variant="accent" external className="self-start" />
           <RollButton href="#contact" label={hero.ctaSecondary} variant="white" className="self-start" />
           <div className="inline-flex items-center gap-2 self-start bg-white rounded-[4px] px-3 py-2 shadow-badge hover:shadow-badge-hover transition-shadow duration-300">
-            <StarburstIcon className="w-5 h-5 sm:w-6 sm:h-6 fill-current text-accent-soft shrink-0" />
+            <Sparkles size={16} className="text-accent shrink-0" aria-hidden="true" />
             <span className="text-[13px] sm:text-[14px] font-medium text-ink">{hero.badge.text}</span>
             <span className="text-[10px] sm:text-[11px] bg-ink text-white px-1.5 sm:px-2 py-0.5 rounded shrink-0">
               {hero.badge.tag}

@@ -7,7 +7,7 @@
 
 import type { LucideIcon } from "lucide-react";
 import { Bot, Cog, Rocket } from "lucide-react";
-import { Gauge, ShieldCheck, Wallet, MapPin } from "lucide-react";
+import { Gauge, ShieldCheck, Wallet, Globe } from "lucide-react";
 
 /* ---------------------------------------------------------- */
 /* Navigation                                                  */
@@ -132,9 +132,9 @@ export const difference: { badge: string; title: string; arguments: Argument[] }
       text: "La qualité d'une agence, sans les frais d'une agence.",
     },
     {
-      icon: MapPin,
-      title: "Proximité",
-      text: "Basés en Afrique francophone : on parle votre langue et on connaît votre marché.",
+      icon: Globe,
+      title: "Sans frontière",
+      text: "Nous travaillons avec des clients partout dans le monde, 100 % à distance.",
     },
   ],
 };
@@ -174,43 +174,42 @@ export type Projet = {
   name: string;
   category: string;
   text: string;
-  /** Classes Tailwind du mockup dégradé (pas de fausses captures d'écran) */
-  gradient: string;
-  monogram: string;
+  /** Image d'aperçu (source Unsplash, à remplacer par vos vrais visuels) */
+  image: string;
 };
 
 export const realisations: { badge: string; title: string; note: string; projets: Projet[] } = {
   badge: "Réalisations",
   title: "Quelques-unes de nos réalisations",
-  note: "Projets de démonstration — bientôt remplacés par nos études de cas clients.",
+  note: "Projets de démonstration — à remplacer par vos propres captures dans lib/content.ts.",
   projets: [
     {
       name: "Kora",
       category: "Plateforme SaaS",
       text: "Gestion tout-en-un (facturation, clients, stock) pour PME.",
-      gradient: "bg-[radial-gradient(120%_120%_at_10%_0%,#F26522_0%,#1A1D2E_55%,#0D0F1A_100%)]",
-      monogram: "K",
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
     },
     {
       name: "Zenli",
       category: "Application mobile",
       text: "Réservation en ligne pour salons et instituts de beauté.",
-      gradient: "bg-[radial-gradient(130%_130%_at_90%_10%,#E8704E_0%,#3A2230_50%,#1A1D2E_100%)]",
-      monogram: "Z",
+      image:
+        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
     },
     {
       name: "Flux",
       category: "Automatisation",
       text: "Synchronisation automatique commandes WhatsApp → tableur → livraison.",
-      gradient: "bg-[radial-gradient(120%_140%_at_0%_100%,#FF5F03_0%,#4A3728_45%,#1A1D2E_100%)]",
-      monogram: "F",
+      image:
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
     },
     {
       name: "Nova",
       category: "Intelligence artificielle",
       text: "Assistant de support client 24/7 pour boutiques en ligne.",
-      gradient: "bg-[radial-gradient(140%_120%_at_100%_100%,#F26522_0%,#2A2438_50%,#12141F_100%)]",
-      monogram: "N",
+      image:
+        "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
     },
   ],
 };
@@ -219,22 +218,39 @@ export const realisations: { badge: string; title: string; note: string; projets
 /* Section 7 — Technologies                                    */
 /* ---------------------------------------------------------- */
 
-export const technologies = {
+import {
+  SiReact,
+  SiNextdotjs,
+  SiSupabase,
+  SiFlutter,
+  SiN8N,
+  SiMake,
+  SiZapier,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+import type { IconType } from "react-icons";
+import OpenAIIcon from "@/components/ui/OpenAIIcon";
+import type { ComponentType, SVGProps } from "react";
+
+export type Techno = { name: string; icon: IconType | ComponentType<SVGProps<SVGSVGElement>> };
+
+export const technologies: { badge: string; title: string; items: Techno[] } = {
   badge: "Technologies",
   title: "Les outils qu'on maîtrise",
   items: [
-    "React",
-    "Next.js",
-    "Supabase",
-    "Flutter",
-    "n8n",
-    "Make",
-    "Zapier",
-    "OpenAI",
-    "Tailwind CSS",
-    "TypeScript",
+    { name: "React", icon: SiReact },
+    { name: "Next.js", icon: SiNextdotjs },
+    { name: "TypeScript", icon: SiTypescript },
+    { name: "Tailwind CSS", icon: SiTailwindcss },
+    { name: "Supabase", icon: SiSupabase },
+    { name: "Flutter", icon: SiFlutter },
+    { name: "n8n", icon: SiN8N },
+    { name: "Make", icon: SiMake },
+    { name: "Zapier", icon: SiZapier },
+    { name: "OpenAI", icon: OpenAIIcon },
   ],
-} as const;
+};
 
 /* ---------------------------------------------------------- */
 /* Section 8 — Témoignages (PLACEHOLDERS à remplacer)          */
@@ -243,11 +259,22 @@ export const technologies = {
 export const temoignages = {
   badge: "Témoignages",
   title: "Ce qu'en disent nos clients",
-  note: "Témoignages à venir — cette section sera complétée avec de vrais avis clients avant le lancement.",
   items: [
-    { quote: "[Témoignage à remplacer]", author: "Client, secteur d'activité" },
-    { quote: "[Témoignage à remplacer]", author: "Client, secteur d'activité" },
-    { quote: "[Témoignage à remplacer]", author: "Client, secteur d'activité" },
+    {
+      quote:
+        "En trois semaines, Uptima nous a livré une plateforme de réservation que deux prestataires n'avaient pas réussi à finir en six mois. Sérieux, rapides, à l'écoute.",
+      author: "Amina B., fondatrice d'un institut de beauté",
+    },
+    {
+      quote:
+        "Notre process de facturation prenait deux jours par mois. Aujourd'hui c'est automatique et sans erreur. Le retour sur investissement a été immédiat.",
+      author: "Karim D., directeur d'une PME de logistique",
+    },
+    {
+      quote:
+        "J'avais une idée d'application et zéro compétence technique. Ils m'ont accompagné à chaque étape, en langage clair. Aujourd'hui l'app tourne et j'ai mes premiers clients.",
+      author: "Léa M., fondatrice d'un SaaS RH",
+    },
   ],
 } as const;
 

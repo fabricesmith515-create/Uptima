@@ -1,7 +1,7 @@
+import { Sparkles } from "lucide-react";
 import { services } from "@/lib/content";
 import Reveal from "@/components/ui/Reveal";
 import SectionBadge from "@/components/ui/SectionBadge";
-import StarburstIcon from "@/components/ui/StarburstIcon";
 
 export default function Services() {
   return (
@@ -29,7 +29,10 @@ export default function Services() {
                   <h3 className="text-[17px] sm:text-[18px] font-semibold text-ink">{pole.title}</h3>
                   <ul className="flex flex-col gap-3">
                     {pole.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-[13px] sm:text-[14px] text-gray-600 leading-relaxed">
+                      <li
+                        key={item}
+                        className="flex items-start gap-2.5 text-[13px] sm:text-[14px] text-gray-600 leading-relaxed"
+                      >
                         <span aria-hidden="true" className="mt-[7px] w-1 h-1 rounded-full bg-accent shrink-0" />
                         {item}
                       </li>
@@ -44,7 +47,7 @@ export default function Services() {
         {/* Bande discrète — réparation d'apps générées par IA */}
         <Reveal delay={0.3} className="px-5 sm:px-8 lg:px-12 mt-6 sm:mt-7">
           <div className="flex items-center gap-3 bg-accent-soft/10 border border-accent-soft/30 rounded-2xl sm:rounded-full px-4 sm:px-5 py-3">
-            <StarburstIcon className="w-5 h-5 fill-current text-accent-soft shrink-0" />
+            <Sparkles size={18} className="text-accent shrink-0" aria-hidden="true" />
             <p className="text-[13px] sm:text-[14px] font-medium text-ink">{services.banner}</p>
           </div>
         </Reveal>

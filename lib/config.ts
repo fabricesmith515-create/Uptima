@@ -9,11 +9,14 @@ export const config = {
   /** Lien de réservation cal.com (appel découverte gratuit) */
   calComUrl: "https://cal.com/uptima/appel-decouverte",
 
-  /** Numéro WhatsApp au format international, sans « + » ni espaces (ex. 2250701020304) */
-  whatsappUrl: "https://wa.me/PLACEHOLDER_NUMERO",
+  /** Lien WhatsApp — numéro au format international, sans « + » ni espaces */
+  whatsappUrl: "https://wa.me/2290167713660",
+
+  /** Numéro WhatsApp affiché à l'écran */
+  whatsappDisplay: "+229 01 67 71 36 60",
 
   /** Adresse e-mail de contact */
-  email: "contact@uptima.PLACEHOLDER",
+  email: "contact@uptima.com",
 
   /** Réseaux sociaux (mettre l'URL complète, ou supprimer l'entrée) */
   socials: [
@@ -21,13 +24,4 @@ export const config = {
     { label: "X (Twitter)", href: "https://x.com/PLACEHOLDER" },
     { label: "Instagram", href: "https://instagram.com/PLACEHOLDER" },
   ],
-
-  /** Bandeau de disponibilité affiché dans la navbar */
-  availability: "On prend des projets pour T3 2026",
-
-  /** Ville et fuseau horaire de l'horloge live de la navbar */
-  clock: {
-    city: "Abidjan",
-    timeZone: "Africa/Abidjan",
-  },
 } as const;

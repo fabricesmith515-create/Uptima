@@ -1,34 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight, Clock, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { config } from "@/lib/config";
 import { navLinks } from "@/lib/content";
 import RollButton from "@/components/ui/RollButton";
 
-/** Horloge live (HH:MM) sur le fuseau défini dans lib/config.ts. */
-function useLiveTime() {
-  const [time, setTime] = useState("--:--");
-  useEffect(() => {
-    const update = () =>
-      setTime(
-        new Intl.DateTimeFormat("fr-FR", {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-          timeZone: config.clock.timeZone,
-        }).format(new Date()),
-      );
-    update();
-    const id = setInterval(update, 1000);
-    return () => clearInterval(id);
-  }, []);
-  return time;
-}
-
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const time = useLiveTime();
 
   // Bloque le défilement de la page quand le menu mobile est ouvert + fermeture à Échap
   useEffect(() => {
@@ -46,35 +25,41 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 inset-x-0 z-40">
       <div className="max-w-content mx-auto w-full p-2 sm:p-3">
-        <nav aria-label="Navigation principale" className="bg-white rounded-full p-[5px] flex items-center justify-between shadow-badge">
-          {/* Logo + liens */}
-          <div className="flex items-center gap-6">
-            <a href="#top" aria-label="Uptima — retour en haut de page" className="w-9 h-9 sm:w-10 sm:h-10 bg-ink rounded-full flex items-center justify-center shrink-0">
-              <span className="text-white text-[10px] sm:text-[11px] font-bold tracking-tight">UP</span>
-            </a>
-            <div className="hidden md:flex items-center gap-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-[14px] text-ink hover:text-gray-500 transition-colors duration-300"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+        <nav
+          aria-label="Navigation principale"
+          className="relative bg-white rounded-full p-[5px] pl-[5px] pr-[5px] flex items-center justify-between shadow-badge"
+        >
+          {/* Logo */}
+          <a
+            href="#top"
+            aria-label="Uptima — retour en haut de page"
+            className="w-9 h-9 sm:w-10 sm:h-10 bg-ink rounded-full flex items-center justify-center shrink-0"
+          >
+            <span className="text-white text-[10px] sm:text-[11px] font-bold tracking-tight">UP</span>
+          </a>
+
+          {/* Liens de navigation — centrés (desktop) */}
+          <div className="hidden md:flex items-center gap-6 lg:gap-8 absolute left-1/2 -translate-x-1/2">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-[14px] text-ink hover:text-gray-500 transition-colors duration-300"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
 
-          {/* Méta + CTA (desktop) */}
-          <div className="hidden md:flex items-center gap-5 pr-1">
-            <span className="hidden lg:block text-[13px] text-gray-600">{config.availability}</span>
-            <span className="hidden lg:flex items-center gap-1.5 text-[13px] text-gray-600 whitespace-nowrap">
-              <Clock size={14} aria-hidden="true" />
-              <span suppressHydrationWarning>
-                {time} à {config.clock.city}
-              </span>
-            </span>
-            <RollButton href={config.calComUrl} label="Réserver un appel" variant="dark" size="sm" external />
+          {/* CTA droite (desktop) */}
+          <div className="hidden md:block">
+            <RollButton
+              href={config.calComUrl}
+              label="Réserver un appel"
+              variant="dark"
+              size="sm"
+              external
+            />
           </div>
 
           {/* Bouton menu mobile */}
@@ -101,7 +86,9 @@ export default function Navbar() {
         aria-hidden={!menuOpen}
       >
         <div
-          className={`absolute inset-0 bg-black/60 transition-opacity duration-500 ${menuOpen ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 bg-black/60 transition-opacity duration-500 ${
+            menuOpen ? "opacity-100" : "opacity-0"
+          }`}
           onClick={() => setMenuOpen(false)}
         />
         <div
@@ -110,12 +97,7 @@ export default function Navbar() {
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className="flex items-center gap-1.5 text-[13px] text-gray-600">
-              <Clock size={14} aria-hidden="true" />
-              <span suppressHydrationWarning>
-                {time} à {config.clock.city}
-              </span>
-            </span>
+            <span className="text-[13px] font-semibold uppercase tracking-wide text-gray-500">Menu</span>
             <button
               type="button"
               onClick={() => setMenuOpen(false)}
