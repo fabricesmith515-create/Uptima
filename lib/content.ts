@@ -256,27 +256,93 @@ export const technologies: { badge: string; title: string; items: Techno[] } = {
 /* Section 8 — Témoignages (PLACEHOLDERS à remplacer)          */
 /* ---------------------------------------------------------- */
 
-export const temoignages = {
+export type Temoignage = { quote: string; name: string; role: string; image: string };
+
+export const temoignages: {
+  badge: string;
+  title: string;
+  subtitle: string;
+  items: Temoignage[];
+} = {
   badge: "Témoignages",
   title: "Ce qu'en disent nos clients",
+  subtitle:
+    "Des entrepreneurs et des équipes qui gagnent en temps, en clarté, et en croissance.",
   items: [
     {
       quote:
         "En trois semaines, Uptima nous a livré une plateforme de réservation que deux prestataires n'avaient pas réussi à finir en six mois. Sérieux, rapides, à l'écoute.",
-      author: "Amina B., fondatrice d'un institut de beauté",
+      name: "Amina Diallo",
+      role: "Fondatrice, Institut Éclat",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
     },
     {
       quote:
         "Notre process de facturation prenait deux jours par mois. Aujourd'hui c'est automatique et sans erreur. Le retour sur investissement a été immédiat.",
-      author: "Karim D., directeur d'une PME de logistique",
+      name: "Karim Bassène",
+      role: "Directeur, PME de logistique",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
     },
     {
       quote:
-        "J'avais une idée d'application et zéro compétence technique. Ils m'ont accompagné à chaque étape, en langage clair. Aujourd'hui l'app tourne et j'ai mes premiers clients.",
-      author: "Léa M., fondatrice d'un SaaS RH",
+        "J'avais une idée d'application et zéro compétence technique. Ils m'ont accompagnée à chaque étape, en langage clair. Aujourd'hui l'app tourne et j'ai mes premiers clients.",
+      name: "Léa Moreau",
+      role: "Fondatrice, SaaS RH",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
+    },
+    {
+      quote:
+        "Notre site vitrine convertit deux fois mieux depuis la refonte. Uptima a compris notre positionnement dès le premier appel, sans qu'on ait à tout ré-expliquer.",
+      name: "Yannick Traoré",
+      role: "Dirigeant, boutique e-commerce",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
+    },
+    {
+      quote:
+        "Un chatbot IA branché sur notre base de connaissances. Nos agents traitent 40 % de tickets en moins et les clients ont des réponses immédiates.",
+      name: "Sophie Roche",
+      role: "Cheffe de projet digital",
+      image:
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
+    },
+    {
+      quote:
+        "Ils ont repris une app générée avec l'IA, l'ont sécurisée et déployée proprement. Elle tourne aujourd'hui en production sans aucun souci.",
+      name: "Malick Sané",
+      role: "Consultant indépendant",
+      image:
+        "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150",
+    },
+    {
+      quote:
+        "Un MVP livré en cinq semaines, un vrai code propre, un vrai suivi après la livraison. Rien à voir avec les freelances qu'on avait eus avant.",
+      name: "Nadia Benali",
+      role: "Fondatrice, marketplace",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
+    },
+    {
+      quote:
+        "Automatisation de nos devis via n8n : ce qui prenait une matinée se fait maintenant en trois minutes. ROI immédiat pour notre équipe commerciale.",
+      name: "Éric Legrand",
+      role: "Directeur, cabinet d'assurance",
+      image:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150",
+    },
+    {
+      quote:
+        "Une plateforme de cours moderne, rapide, avec paiement intégré. On a gagné en crédibilité, et surtout en revenus dès le premier mois.",
+      name: "Aïcha Kamara",
+      role: "Fondatrice, école en ligne",
+      image:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
     },
   ],
-} as const;
+};
 
 /* ---------------------------------------------------------- */
 /* Section 9 — FAQ                                             */
